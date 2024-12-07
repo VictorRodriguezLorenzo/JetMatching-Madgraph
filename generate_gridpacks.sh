@@ -30,7 +30,11 @@ sed -i "s/^.*= xqcut.*$/ ${xqcut_val} = xqcut/" "$BASE_DIR/"*"_run_card.dat"
 source /afs/cern.ch/user/v/victorr/private/tt_DM/full_workflow/genproductions/bin/MadGraph5_aMCatNLO/submit_condor_gridpack_generation.sh "ttbarDM__$mass_point_name" "../../../mass_points/ttbarDM__$mass_point_name/" #"slc7_amd64_gcc10" "CMSSW_12_4_8"
 
 # Use the sanitized xqcut value in the final file name
-mv ttbarDM__"$mass_point_name"*.tar.xz "$GRIDPACK_DIR/${mass_point_name}/ttbarDM__${mass_point_name}_xqcut_${xqcut_val_sanitized}.tar.xz"
+mv ttbarDM__${mass_point_name}_xqcut_${xqcut_val}.tar.xz "$GRIDPACK_DIR/${mass_point_name}/ttbarDM__${mass_point_name}_xqcut_${xqcut_val_sanitized}.tar.xz"
+
+# Remove gridpack folder and log (just save the tarball)
+rm -r ttbarDM__${mass_point_name} ttbarDM__${mass_point_name}.log 
+
 
 echo "Gridpack generation for xqcut=$xqcut_val and card=$mass_point_name completed!"
 
