@@ -143,14 +143,19 @@ void plotdjr(const TString & infile, const TString & outfile, const TString & ou
         setcanvas(c1,pad);
 
         pad[0]->cd();
+//	gPad->SetLogy(1);
         makeplot("djr0",tree,weight,"log10(GenEvent.DJRValues_[0])","DJR 0->1",nbins,djrmin,djrmax,typeMC);
         pad[1]->cd();
+//	gPad->SetLogy(1);
         makeplot("djr1",tree,weight,"log10(GenEvent.DJRValues_[1])","DJR 1->2",nbins,djrmin,djrmax,typeMC);
         pad[2]->cd();
+//	gPad->SetLogy(1);
         makeplot("djr2",tree,weight,"log10(GenEvent.DJRValues_[2])","DJR 2->3",nbins,djrmin,djrmax,typeMC);
         pad[3]->cd();
+//	gPad->SetLogy(1);
         makeplot("djr3",tree,weight,"log10(GenEvent.DJRValues_[3])","DJR 3->4",nbins,djrmin,djrmax,typeMC);
         pad[4]->cd();
+//	gPad->SetLogy(1);
         makeplot("djr4",tree,weight,"log10(GenEvent.DJRValues_[4])","DJR 4->5",nbins,djrmin,djrmax,typeMC);
 
         c1->Print(outfile);

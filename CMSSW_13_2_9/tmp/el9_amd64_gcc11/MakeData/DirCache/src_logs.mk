@@ -1,0 +1,3 @@
+ALL_SUBSYSTEMS+=logs
+subdirs_src_logs = src_logs_ttbarDM__dilepton__DMsimp_LO_ps_spin0__mchi_1_mphi_100_gSM_1_gDM_1_6800GeV_xqcut_10
+subdirs_src += src_logs

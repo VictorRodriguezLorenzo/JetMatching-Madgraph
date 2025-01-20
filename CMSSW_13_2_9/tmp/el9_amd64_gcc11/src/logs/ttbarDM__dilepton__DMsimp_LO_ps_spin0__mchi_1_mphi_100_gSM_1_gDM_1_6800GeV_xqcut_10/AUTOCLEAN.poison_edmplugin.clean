@@ -1,0 +1,4 @@
+01:/usr/bin/rm -rf tmp/el9_amd64_gcc11/edmplugins/poison/logs/ttbarDM__dilepton__DMsimp_LO_ps_spin0__mchi_1_mphi_100_gSM_1_gDM_1_6800GeV_xqcut_10
+01:/usr/bin/touch tmp/common/cache/packs/changed
+01:/usr/bin/touch tmp/common/cache/packs/changed
+01:/usr/bin/touch tmp/common/cache/packs/changed
