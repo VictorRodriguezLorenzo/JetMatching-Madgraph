@@ -32,7 +32,8 @@ def submit():
             default="90",
             help='Value for qcut in pythia card')
     parser.add_option('-g', '--gridpack', action='store', type=str, dest='gridpack',
-            default="/cvmfs/cms.cern.ch/phys_generator/gridpacks/2017/13TeV/madgraph/V5_2.6.1/ttbarDM_inclusive_DMsimp_LO/ttbarDM__dilepton__DMsimp_LO_ps_spin0__mchi_1_mphi_50_gSM_1_gDM_1_6500GeV_slc6_amd64_gcc630_CMSSW_9_3_8_tarball.tar.xz",
+            #default="/cvmfs/cms.cern.ch/phys_generator/gridpacks/2017/13TeV/madgraph/V5_2.6.1/ttbarDM_inclusive_DMsimp_LO/ttbarDM__dilepton__DMsimp_LO_ps_spin0__mchi_1_mphi_50_gSM_1_gDM_1_6500GeV_slc6_amd64_gcc630_CMSSW_9_3_8_tarball.tar.xz",
+            default="/eos/user/v/vizan//ttbarDM_dilepton_pseudoscalar/ttbarDM__dilepton__DMsimp_LO_ps_spin0__mchi_1_mphi_50_gSM_1_gDM_1_6800GeV_slc7_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
             help='Gridpack used for the study')   
     parser.add_option('-r', '--rootfile', action='store', type=str, dest='rootFileName',
             default="EXO-RunIIFall18GS",
@@ -126,7 +127,7 @@ def submit():
             # Intialize CMSSW release within that folder
             jobFile.write("cmsrel CMSSW_13_2_9\n")
             jobFile.write("cd CMSSW_13_2_9/src\n")
-            jobFile.write("cp -r /afs/cern.ch/user/v/victorr/private/tt_DM/full_workflow/CMSSW_13_2_9/src/Configuration .\n")
+            jobFile.write(f"cp -r /afs/cern.ch/user/v/victorr/private/tt_DM/tt-DM-q_cut-xqcut-Madgraph/CMSSW_13_2_9/src/Configuration .\n")
             # Update the gridpack path and qcut in the fragment
             jobFile.write(f"sed -i 's|\"gridpack_path\": \".*\.tar.xz\"|\"gridpack_path\": \"{gridpack}\"|' 'Configuration/GenProduction/python/EXO-RunIIFall18GS-test.py'\n")
             jobFile.write(f"sed -i 's/\\(JetMatching:qCut = \\)[0-9]\\+/\\1{qcut}/' 'Configuration/GenProduction/python/EXO-RunIIFall18GS-test.py'\n")
@@ -140,8 +141,8 @@ def submit():
                     f"cmsDriver.py Configuration/GenProduction/python/EXO-RunIIFall18GS-test.py "
                     f"-n {eventsPerRun} --fileout file:{rootFileName}-{jobName}.root --mc "
                     f"--eventcontent RAWSIM --datatier GEN-SIM --conditions 124X_mcRun3_2022_realistic_postEE_v1 "
-                    f"--beamspot Realistic25ns13p6TeVEarly2022Collision "
-                    f"--customise_commands \"process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(50)\" "
+                    f"--beamspot Realistic25ns13p6TeVEarly2022Collision --nThreads 4 "
+                    f"--customise_commands \"process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(20)\" "
                     f"--step GEN,SIM --geometry DB:Extended --era Run3\n"
                     )
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Base director
-SCRIPT_DIR="/afs/cern.ch/user/v/victorr/private/tt_DM/full_workflow"
-GRIDPACK_DIR="$SCRIPT_DIR/gridpacks"
+SCRIPT_DIR="/afs/cern.ch/user/v/victorr/private/tt_DM/tt-DM-q_cut-xqcut-Madgraph"
+GRIDPACK_DIR="/eos/user/v/victorr/gridpacks"
 
 # Get inputs from the previous script
 xqcut_val=$1      # First argument: xqcut value

@@ -1,6 +1,6 @@
 #!/bin/sh
 JOBS="mass_points"
-TEMP="/afs/cern.ch/user/v/victorr/private/tt_DM/full_workflow/genproductions/bin/MadGraph5_aMCatNLO/cards/production/13p6TeV/ttbarDM/ttbarDM_dilepton_pseudoscalar/templatecards"
+TEMP="/afs/cern.ch/user/v/victorr/private/tt_DM/tt-DM-q_cut-xqcut-Madgraph/genproductions/bin/MadGraph5_aMCatNLO/cards/production/13p6TeV/ttbarDM/ttbarDM_dilepton_pseudoscalar/templatecards"
 PROC="ttbarDM__dilepton__DMsimp_LO_ps_spin0"
 
 ### Create cards for all mass points

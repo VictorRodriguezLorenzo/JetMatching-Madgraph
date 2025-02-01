@@ -22,7 +22,7 @@ while IFS= read -r line; do
     LOG_FILE=$(echo "$line" | cut -d':' -f1)      # Extract the log file name
     JOB_NAME=$(basename "$LOG_FILE" .err)         # Extract the job name from the log file
     FAILED_JOBS+=("$JOB_NAME")
-done < <(grep -L "Begin processing the 4th record" "$JOB_SCRIPT_DIR"/*.err 2>/dev/null)
+done < <(grep -L "Begin processing the 100th record" "$JOB_SCRIPT_DIR"/*.err 2>/dev/null)
 
 # Check if there are any failed jobs
 if [ ${#FAILED_JOBS[@]} -eq 0 ]; then
